@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ListView
 
 class MainActivity : AppCompatActivity() {
@@ -17,12 +18,10 @@ class MainActivity : AppCompatActivity() {
 
         cityWeather.setOnClickListener {
             var moveToCityWeather = Intent(getApplicationContext(), CityWeather::class.java)
+            val searchEditText = findViewById<EditText>(R.id.editText)
+            moveToCityWeather.putExtra("searchCity", searchEditText.text.toString() )
             startActivity(moveToCityWeather)
         }
-
-
-
-
     }
 }
 
